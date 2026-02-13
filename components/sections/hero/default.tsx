@@ -31,29 +31,19 @@ interface HeroProps {
 }
 
 export default function Hero({
-  title = "Give your big idea the design it deserves",
-  description = "Professionally designed blocks and templates built with React, Shadcn/ui and Tailwind that will help your product stand out.",
+  title = "Welcome to the future of\nCloud Rendering",
+  description = "Only pay for what you use, we don't overcharge for our systems running and burning electricity. Simple, transparent and beautiful while providing the best in class speed and hardware.",
   mockup = (
     <Screenshot
       srcLight="/dashboard-light.png"
-      srcDark="/dashboard-dark.png"
+      srcDark="/appScreenshotCut.png"
       alt="Launch UI app screenshot"
       width={1248}
       height={765}
       className="w-full"
     />
   ),
-  badge = (
-    <Badge variant="outline" className="animate-appear">
-      <span className="text-muted-foreground">
-        New version of Launch UI is out!
-      </span>
-      <a href={siteConfig.getStartedUrl} className="flex items-center gap-1">
-        Get started
-        <ArrowRightIcon className="size-3" />
-      </a>
-    </Badge>
-  ),
+  badge = false,
   buttons = [
     {
       href: siteConfig.getStartedUrl,
@@ -76,14 +66,19 @@ export default function Hero({
         className,
       )}
     >
-      <div className="max-w-container mx-auto flex flex-col gap-12 pt-16 sm:gap-24">
+      <div className="max-w-container mx-auto flex flex-col gap-8 pt-4 sm:gap-16">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
           {badge !== false && badge}
-          <h1 className="animate-appear from-foreground to-foreground dark:to-muted-foreground relative z-10 inline-block bg-linear-to-r bg-clip-text text-4xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
-            {title}
+          <h1 className="animate-appear from-foreground to-foreground dark:to-muted-foreground relative z-10 inline-block bg-linear-to-r bg-clip-text text-2xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight">
+            <span className="block">Welcome to the future of</span>
+            <span className="block">Cloud Rendering</span>
           </h1>
-          <p className="text-md animate-appear text-muted-foreground relative z-10 max-w-[740px] font-medium text-balance opacity-0 delay-100 sm:text-xl">
+          <p className="text-md animate-appear text-muted-foreground relative z-10 max-w-[1000px] font-medium text-balance opacity-0 delay-100 sm:text-xl">
             {description}
+            <br />
+            <span className="from-foreground to-brand bg-linear-to-r bg-clip-text font-semibold text-transparent drop-shadow-[2px_1px_24px_var(--brand-foreground)]">
+              No BS. No Cap.
+            </span>
           </p>
           {buttons !== false && buttons.length > 0 && (
             <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
