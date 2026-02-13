@@ -117,13 +117,27 @@ const fragmentShader = `
   }
 `;
 
+const wireframeFragmentShader = `
+  varying vec3 vNormal;
+  varying vec3 vPosition;
+  varying float vDisplacement;
+
+  void main() {
+    vec3 baseColor = vec3(0.227, 0.525, 1.0);
+    vec3 viewDir = normalize(-vPosition);
+    float rim = 1.0 - max(dot(normalize(vNormal), viewDir), 0.0);
+    float alpha = rim * 0.4 + 0.05;
+    gl_FragColor = vec4(baseColor, alpha);
+  }
+`;
+
 interface Ripple {
   origin: THREE.Vector3;
   time: number;
 }
 
 function NoiseSphere() {
-  const meshRef = useRef<THREE.Mesh>(null!);
+  const meshRef = useRef<THREE.Group>(null!);
   const ripples = useRef<Ripple[]>([]);
   const uniforms = useMemo(
     () => ({
@@ -203,14 +217,26 @@ function NoiseSphere() {
   });
 
   return (
-    <mesh ref={meshRef} position={[0, 0, 0]}>
-      <icosahedronGeometry args={[1.6, 64]} />
-      <shaderMaterial
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        uniforms={uniforms}
-      />
-    </mesh>
+    <group ref={meshRef} position={[0, 0, 0]}>
+      <mesh>
+        <icosahedronGeometry args={[1.6, 64]} />
+        <shaderMaterial
+          vertexShader={vertexShader}
+          fragmentShader={fragmentShader}
+          uniforms={uniforms}
+        />
+      </mesh>
+      <mesh>
+        <icosahedronGeometry args={[1.6, 64]} />
+        <shaderMaterial
+          vertexShader={vertexShader}
+          fragmentShader={wireframeFragmentShader}
+          uniforms={uniforms}
+          wireframe
+          transparent
+        />
+      </mesh>
+    </group>
   );
 }
 
