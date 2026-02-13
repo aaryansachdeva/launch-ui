@@ -9,6 +9,7 @@ import Github from "../../logos/github";
 import { Badge } from "../../ui/badge";
 import { Button, buttonVariants } from "../../ui/button";
 import Glow from "../../ui/glow";
+import HeroSphere from "../../ui/hero-sphere";
 import { Mockup, MockupFrame } from "../../ui/mockup";
 import Screenshot from "../../ui/screenshot";
 import { Section } from "../../ui/section";
@@ -67,7 +68,10 @@ export default function Hero({
       )}
     >
       <div className="max-w-container mx-auto flex flex-col gap-8 pt-4 sm:gap-16">
-        <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
+        <div className="relative flex flex-col items-center gap-6 text-center sm:gap-12">
+          <div className="pointer-events-none fixed inset-x-0 top-0 z-0 h-screen">
+            <HeroSphere />
+          </div>
           {badge !== false && badge}
           <h1 className="animate-appear from-foreground to-foreground dark:to-muted-foreground relative z-10 inline-block bg-linear-to-r bg-clip-text text-2xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight">
             <span className="block">Welcome to the future of</span>
