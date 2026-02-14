@@ -9,6 +9,7 @@ import LaunchUI from "../../logos/launch-ui";
 import { Button, buttonVariants } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
+  NavbarCenter,
   NavbarLeft,
   NavbarRight,
 } from "../../ui/navbar";
@@ -41,13 +42,13 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <LaunchUI />,
-  name = "Launch UI",
+  logo = <img src="/fotonrender-logo.png" alt="fotonRender" className="h-8" />,
+  name = "",
   homeUrl = siteConfig.url,
   mobileLinks = [
-    { text: "Getting Started", href: siteConfig.url },
-    { text: "Components", href: siteConfig.url },
-    { text: "Documentation", href: siteConfig.url },
+    { text: "Pricing", href: "#pricing" },
+    { text: "Features", href: "#features" },
+    { text: "Download", href: "#download" },
   ],
   actions = [
     { text: "Sign in", href: siteConfig.url, isButton: false },
@@ -75,8 +76,10 @@ export default function Navbar({
               {logo}
               {name}
             </a>
-            {showNavigation && (customNavigation || <Navigation />)}
           </NavbarLeft>
+          <NavbarCenter>
+            {showNavigation && (customNavigation || <Navigation />)}
+          </NavbarCenter>
           <NavbarRight>
             {actions.map((action, index) =>
               action.isButton ? (
@@ -119,7 +122,7 @@ export default function Navbar({
                     href={homeUrl}
                     className="flex items-center gap-2 text-xl font-bold"
                   >
-                    <span>{name}</span>
+                    {logo || <span>{name}</span>}
                   </a>
                   {mobileLinks.map((link, index) => (
                     <a

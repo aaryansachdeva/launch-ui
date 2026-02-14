@@ -20,11 +20,7 @@ interface LogosProps {
 
 export default function Logos({
   title = "Built with industry-standard tools and best practices",
-  badge = (
-    <Badge variant="outline" className="border-brand/30 text-brand">
-      Last updated: {siteConfig.stats.updated}
-    </Badge>
-  ),
+  badge = false,
   logos = [
     <Logo key="figma" image={Figma} name="Figma" />,
     <Logo key="react" image={React} name="React" version="19.2.1" />,

@@ -73,11 +73,11 @@ export default function Hero({
             <HeroSphere />
           </div>
           {badge !== false && badge}
-          <h1 className="animate-appear from-foreground to-foreground dark:to-muted-foreground relative z-10 inline-block bg-linear-to-r bg-clip-text text-2xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight">
+          <h1 className="animate-appear from-white to-white dark:to-white/90 relative z-10 inline-block bg-linear-to-r bg-clip-text text-2xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight">
             <span className="block">Welcome to the future of</span>
             <span className="block">Cloud Rendering</span>
           </h1>
-          <p className="text-md animate-appear text-muted-foreground relative z-10 max-w-[1000px] font-medium text-balance opacity-0 delay-100 sm:text-xl">
+          <p className="text-md animate-appear text-white/75 dark:text-white/75 relative z-10 max-w-[1000px] font-medium text-balance opacity-0 delay-100 sm:text-xl">
             {description}
             <br />
             <span className="from-foreground to-brand bg-linear-to-r bg-clip-text font-semibold text-transparent drop-shadow-[2px_1px_24px_var(--brand-foreground)]">

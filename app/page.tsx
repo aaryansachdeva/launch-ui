@@ -1,4 +1,5 @@
 import CTA from "../components/sections/cta/default";
+import Download from "../components/sections/download/default";
 import FAQ from "../components/sections/faq/default";
 import Footer from "../components/sections/footer/default";
 import Hero from "../components/sections/hero/default";
@@ -15,7 +16,7 @@ export default function Home() {
       <LayoutLines />
       <Navbar />
       <Hero />
-      <Logos />
+      <Download />
       <Items />
       <Stats />
       <Pricing />

@@ -98,9 +98,9 @@ const fragmentShader = `
     vec3 lightDir = normalize(vec3(1.0, 1.0, 2.0));
     float diff = max(dot(normalize(vNormal), lightDir), 0.0);
 
-    vec3 baseColor = vec3(0.227, 0.525, 1.0);
-    vec3 accentColor = vec3(0.424, 0.388, 1.0);
-    vec3 peakColor = vec3(0.65, 0.3, 0.95);
+    vec3 baseColor = vec3(0.184, 0.425, 0.81);
+    vec3 accentColor = vec3(0.344, 0.314, 0.81);
+    vec3 peakColor = vec3(0.527, 0.243, 0.77);
 
     float t = smoothstep(-0.3, 0.3, vDisplacement);
     vec3 color = mix(baseColor, accentColor, t);
@@ -110,8 +110,8 @@ const fragmentShader = `
     float rim = 1.0 - max(dot(normalize(vNormal), viewDir), 0.0);
     rim = pow(rim, 3.0);
 
-    vec3 finalColor = color * (0.15 + diff * 0.5) + rim * baseColor * 0.6;
-    finalColor += max(vDisplacement, 0.0) * baseColor * 0.4;
+    vec3 finalColor = color * (0.122 + diff * 0.405) + rim * baseColor * 0.486;
+    finalColor += max(vDisplacement, 0.0) * baseColor * 0.324;
 
     gl_FragColor = vec4(finalColor, 1.0);
   }
@@ -123,10 +123,10 @@ const wireframeFragmentShader = `
   varying float vDisplacement;
 
   void main() {
-    vec3 baseColor = vec3(0.227, 0.525, 1.0);
+    vec3 baseColor = vec3(0.204, 0.473, 0.9);
     vec3 viewDir = normalize(-vPosition);
     float rim = 1.0 - max(dot(normalize(vNormal), viewDir), 0.0);
-    float alpha = rim * 0.4 + 0.05;
+    float alpha = rim * 0.36 + 0.045;
     gl_FragColor = vec4(baseColor, alpha);
   }
 `;
