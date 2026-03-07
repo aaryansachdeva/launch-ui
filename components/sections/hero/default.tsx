@@ -1,5 +1,5 @@
 import { type VariantProps } from "class-variance-authority";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, DownloadIcon } from "lucide-react";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
@@ -37,7 +37,7 @@ export default function Hero({
   mockup = (
     <Screenshot
       srcLight="/dashboard-light.png"
-      srcDark="/appScreenshotCut.png"
+      srcDark="/appScreenshotCut2.png"
       alt="Launch UI app screenshot"
       width={1248}
       height={765}
@@ -53,9 +53,9 @@ export default function Hero({
     },
     {
       href: siteConfig.links.github,
-      text: "Github",
+      text: "Download",
       variant: "glow",
-      icon: <Github className="mr-2 size-4" />,
+      icon: <DownloadIcon className="mr-2 size-4" />,
     },
   ],
   className,
@@ -67,15 +67,15 @@ export default function Hero({
         className,
       )}
     >
-      <div className="max-w-container mx-auto flex flex-col gap-8 pt-4 sm:gap-16">
+      <div className="max-w-container mx-auto flex flex-col gap-8 -mt-8 sm:-mt-12 sm:gap-16">
         <div className="relative flex flex-col items-center gap-6 text-center sm:gap-12">
           <div className="pointer-events-none fixed inset-x-0 top-0 z-0 h-screen">
             <HeroSphere />
           </div>
           {badge !== false && badge}
           <h1 className="animate-appear from-white to-white dark:to-white/90 relative z-10 inline-block bg-linear-to-r bg-clip-text text-2xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight">
-            <span className="block">Welcome to the future of</span>
-            <span className="block">Cloud Rendering</span>
+            <span className="block">Rendering</span>
+            <span className="block">Revolutionized.</span>
           </h1>
           <p className="text-md animate-appear text-white/75 dark:text-white/75 relative z-10 max-w-[1000px] font-medium text-balance opacity-0 delay-100 sm:text-xl">
             {description}

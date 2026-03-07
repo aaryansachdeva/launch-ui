@@ -86,6 +86,7 @@ export default function Navbar({
                 <Button
                   key={index}
                   variant={action.variant || "default"}
+                  size="lg"
                   asChild
                 >
                   <a href={action.href}>
